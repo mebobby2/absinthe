@@ -2,6 +2,7 @@
 ## Setup
 1. ```mix deps.get```
 2. ```mix ecto.setup```
+3. ```mix phx.server```
 
 ## GraphQL
 GraphQL is a query language that gives the users of an API the ability to describe the data that they want, and lets creators of the API focus on data relationships and business rules instead of worrying about the various data payloads the API needs to return.
@@ -21,8 +22,6 @@ REST’s simplicity falls away pretty suddenly as the needs of clients become mo
 
 # Upto
 
-Page 30
+Page 44
 
-Our Schema Module
-
-Before that: explore the postgresql database and get familiar with the dataset
+Chapter 3

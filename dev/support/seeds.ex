@@ -34,23 +34,23 @@ defmodule PlateSlate.Seeds do
     sandwiches = %Menu.Category{name: "Sandwiches"} |> Repo.insert!
 
     _rueben =
-      %Menu.Item{name: "Reuben", price: 4.50, category: sandwiches}
+      %Menu.Item{name: "Reuben", price: Decimal.cast(4.50), category: sandwiches}
       |> Repo.insert!
 
     _croque =
-      %Menu.Item{name: "Croque Monsieur", price: 5.50, category: sandwiches}
+      %Menu.Item{name: "Croque Monsieur", price: Decimal.cast(5.50), category: sandwiches}
       |> Repo.insert!
 
     _muffuletta =
-      %Menu.Item{name: "Muffuletta", price: 5.50, category: sandwiches}
+      %Menu.Item{name: "Muffuletta", price: Decimal.cast(5.50), category: sandwiches}
       |> Repo.insert!
 
     _bahn_mi =
-      %Menu.Item{name: "Bánh mì", price: 4.50, category: sandwiches}
+      %Menu.Item{name: "Bánh mì", price: Decimal.cast(4.50), category: sandwiches}
       |> Repo.insert!
 
     _vada_pav =
-      %Menu.Item{name: "Vada Pav", price: 4.50, category: sandwiches, tags: [vegetarian]}
+      %Menu.Item{name: "Vada Pav", price: Decimal.cast(4.50), category: sandwiches, tags: [vegetarian]}
       |> Repo.insert!
 
     #
@@ -60,15 +60,15 @@ defmodule PlateSlate.Seeds do
     sides = %Menu.Category{name: "Sides"} |> Repo.insert!
 
     _fries =
-      %Menu.Item{name: "French Fries", price: 2.50, category: sides}
+      %Menu.Item{name: "French Fries", price: Decimal.cast(2.50), category: sides}
       |> Repo.insert!
 
     _papadum =
-      %Menu.Item{name: "Papadum", price: 1.25, category: sides}
+      %Menu.Item{name: "Papadum", price: Decimal.cast(1.25), category: sides}
       |> Repo.insert!
 
     _pasta_salad =
-      %Menu.Item{name: "Pasta Salad", price: 2.50, category: sides}
+      %Menu.Item{name: "Pasta Salad", price: Decimal.cast(2.50), category: sides}
       |> Repo.insert!
 
     #
@@ -82,23 +82,23 @@ defmodule PlateSlate.Seeds do
       |> Repo.insert!
 
     _soda =
-      %Menu.Item{name: "Soft Drink", price: 1.5, category: beverages}
+      %Menu.Item{name: "Soft Drink", price: Decimal.cast(1.5), category: beverages}
       |> Repo.insert!
 
     _lemonade =
-      %Menu.Item{name: "Lemonade", price: 1.25, category: beverages}
+      %Menu.Item{name: "Lemonade", price: Decimal.cast(1.25), category: beverages}
       |> Repo.insert!
 
     _chai =
-      %Menu.Item{name: "Masala Chai", price: 1.5, category: beverages}
+      %Menu.Item{name: "Masala Chai", price: Decimal.cast(1.5), category: beverages}
       |> Repo.insert!
 
     _vanilla_milkshake =
-      %Menu.Item{name: "Vanilla Milkshake", price: 3.0, category: beverages}
+      %Menu.Item{name: "Vanilla Milkshake", price: Decimal.cast(3.0), category: beverages}
       |> Repo.insert!
 
     _chocolate_milkshake =
-      %Menu.Item{name: "Chocolate Milkshake", price: 3.0, category: beverages}
+      %Menu.Item{name: "Chocolate Milkshake", price: Decimal.cast(3.0), category: beverages}
       |> Repo.insert!
 
     :ok

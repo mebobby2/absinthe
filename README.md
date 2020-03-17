@@ -24,8 +24,24 @@ REST API authors attempting to address this problem use a number of differ- ent 
 
 REST’s simplicity falls away pretty suddenly as the needs of clients become more varied and the surface area of the API expands.
 
+### Exclamation Mark
+An exclamation mark (!) denotes that, as the person writing the GraphQL query document, you’re making the variable mandatory. This is a handy tool on the client side, giving front-end developers the ability to enforce additional input constraints.
+
+```
+  query ($filter: MenuItemFilter!) {
+    menuItems(filter: $filter) {
+      name
+    }
+  }
+```
+
+### Non-Nullability
+When the field for an input object is non-nullable — just as with arguments — validation will fail when a non-null value isn’t provided for that field. It’s different for normal (output) object fields. Declaring an output object field as non-nullable means that the schema will guarantee the field resolver’s result will always be non-null.
+
+Non-nullability for input object fields means the client needs to provide a non-null value as part of the request. Non-nullability for output object fields means the server needs to provide a non- null value as part of the response.
+
 # Upto
 
-Page 57
+Page 71
 
-Modeling Input Objects
+Chapter 4

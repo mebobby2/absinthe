@@ -1,5 +1,6 @@
 defmodule PlateSlateWeb.Schema.MenuTypes do
   use Absinthe.Schema.Notation
+  alias PlateSlateWeb.Resolvers
 
   @desc "Filtering options for the menu item list"
   input_object :menu_item_filter do

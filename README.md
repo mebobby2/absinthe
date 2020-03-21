@@ -58,6 +58,8 @@ query Search($term: String!) {
 }
 ```
 
+The ... is referred to as a 'fragment spread', and it inserts the inline fragment that follows. This is nomenclature you’ll also find in ECMAScript 6 objects, which isn’t surprising considering the number of JavaScript developers involved with the creation and maintenance of GraphQL.
+
 ## Elixir
 ### Anonymous Functions Multiple Bodies
 An anonymous function can also have multiple bodies (as a result of pattern matching):
@@ -83,6 +85,6 @@ add_one.(1) # 2
 
 # Upto
 
-Page 80
+Page 81
 
-You can see where we’re defining and inserting fragments on lines 3
+First, we start the server

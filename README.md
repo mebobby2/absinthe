@@ -40,8 +40,49 @@ When the field for an input object is non-nullable — just as with arguments �
 
 Non-nullability for input object fields means the client needs to provide a non-null value as part of the request. Non-nullability for output object fields means the server needs to provide a non- null value as part of the response.
 
+### Fragments
+Fragments are a way to write chunks of GraphQL that can target a specific type. E.g:
+```
+query Search($term: String!) {
+  search(matching: $term) {
+    ... on MenuItem {
+      name
+    }
+    ... on Category {
+      name
+      items {
+        name
+      }
+    }
+  }
+}
+```
+
+## Elixir
+### Anonymous Functions Multiple Bodies
+An anonymous function can also have multiple bodies (as a result of pattern matching):
+```
+my_func = fn
+  param1 -> do_this
+  param2 -> do_that
+end
+```
+
+### Capture Function
+Capture means & can turn a function into an anonymous functions which can be passed as arguments to other function or be bound to a variable.
+```
+speak = &(IO.puts/1)
+speak.("hello")  # hello
+```
+
+The capture operator can also be used to create anonymous functions, for example:
+```
+add_one = &(&1 + 1)
+add_one.(1) # 2
+```
+
 # Upto
 
-Page 74
+Page 80
 
-Importing Fields
+You can see where we’re defining and inserting fragments on lines 3

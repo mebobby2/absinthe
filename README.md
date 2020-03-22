@@ -64,6 +64,26 @@ Unions are about combinations of disparate types that might not have any fields 
 
 Selecting fields that have been declared on the interface aren't subject to the same type of restrictions as selecting fields on unions, so no fragments are needed. If there are fields in common, interfaces allow users to write more simple, readable GraphQL.
 
+### Named Fragments
+E.g.
+```
+query Search($term: String!) { search(matching: $term) {
+       ... MenuItemFields
+       ... CategoryFields
+     }
+}
+fragment MenuItemFields on MenuItem {
+  name
+}
+fragment CategoryFields on Category {
+  name
+     items {
+       ... MenuItemFields
+  }
+}
+```
+Maintaining a GraphQL document like this has a key benefit: simple extensibility.
+
 ## Elixir
 ### Anonymous Functions Multiple Bodies
 An anonymous function can also have multiple bodies (as a result of pattern matching):
@@ -89,6 +109,6 @@ add_one.(1) # 2
 
 # Upto
 
-Page 81
+Page 89
 
-First, we start the server
+Chapter 5

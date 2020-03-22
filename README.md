@@ -84,6 +84,12 @@ fragment CategoryFields on Category {
 ```
 Maintaining a GraphQL document like this has a key benefit: simple extensibility.
 
+### Object Types Aren't Input Types
+It’s easy to forget that you can’t use object types for user input; instead, you need to create input object types for use in arguments. While this might seem like unnecessary work at first, you’ll come to appreciate the way it forces you to focus on the discrete package of data that you need for specific mutations.
+
+There are also some technical differences between objects and input objects. Input object fields can only be valid input types, which excludes unions, interfaces, and objects. You also can’t form cycles with input objects, whereas cycles are permitted with objects.
+
+
 ## Elixir
 ### Anonymous Functions Multiple Bodies
 An anonymous function can also have multiple bodies (as a result of pattern matching):
@@ -109,6 +115,6 @@ add_one.(1) # 2
 
 # Upto
 
-Page 89
+Page 98
 
-Chapter 5
+Handling Mutation Errors

@@ -62,6 +62,8 @@ The ... is referred to as a 'fragment spread', and it inserts the inline fragmen
 
 Unions are about combinations of disparate types that might not have any fields in common, retrieving data from them requires us to use fragments (that target types) to get the data we want. There’s another option: interfaces.
 
+Selecting fields that have been declared on the interface aren't subject to the same type of restrictions as selecting fields on unions, so no fragments are needed. If there are fields in common, interfaces allow users to write more simple, readable GraphQL.
+
 ## Elixir
 ### Anonymous Functions Multiple Bodies
 An anonymous function can also have multiple bodies (as a result of pattern matching):

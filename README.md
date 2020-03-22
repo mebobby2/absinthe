@@ -60,6 +60,8 @@ query Search($term: String!) {
 
 The ... is referred to as a 'fragment spread', and it inserts the inline fragment that follows. This is nomenclature you’ll also find in ECMAScript 6 objects, which isn’t surprising considering the number of JavaScript developers involved with the creation and maintenance of GraphQL.
 
+Unions are about combinations of disparate types that might not have any fields in common, retrieving data from them requires us to use fragments (that target types) to get the data we want. There’s another option: interfaces.
+
 ## Elixir
 ### Anonymous Functions Multiple Bodies
 An anonymous function can also have multiple bodies (as a result of pattern matching):

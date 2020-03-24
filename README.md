@@ -113,8 +113,40 @@ add_one = &(&1 + 1)
 add_one.(1) # 2
 ```
 
+### Keywords
+Keyword lists are lists of two-element tuples, where the first element of the tuple is an atom and the second element can be any value, used mostly to work with optional values.
+Example:
+```
+[{:exit_on_close, true}, {:active, :once}, {:packet_size, 1024}]
+```
+can be written as:
+```
+[exit_on_close: true, active: :once, packet_size: 1024]
+```
+
+#### Call syntax
+When keyword lists are passed as the last argument to a function, then the square brackets around the keyword list can be omitted as well. For example, the keyword list syntax:
+```
+String.split("1-0", "-", [trim: true, parts: 2])
+```
+can be written without the enclosing brackets whenever it is the last argument of a function call:
+```
+String.split("1-0", "-", trim: true, parts: 2)
+```
+Since tuples, lists, maps, and others are treated the same as function calls in Elixir syntax, this property is also available to them:
+```
+{1, 2, foo: :bar}
+{1, 2, [{:foo, :bar}]}
+
+[1, 2, foo: :bar]
+[1, 2, {:foo, :bar}]
+
+%{1 => 2, foo: :bar}
+%{1 => 2, :foo => :bar}
+```
+
 # Upto
 
-Page 98
+Page 103
 
-Handling Mutation Errors
+Errors as Data

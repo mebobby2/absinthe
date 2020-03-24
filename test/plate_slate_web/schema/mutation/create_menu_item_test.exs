@@ -73,7 +73,8 @@ defmodule PlateSlateWeb.Schema.Mutation.CreateMenuItemTest do
       "errors" => [
         %{
           "locations" => [%{"column" => 0, "line" => 2}],
-          "message" => "Could not create menu item",
+          "message" => "Could not create menu items",
+          "details" => %{"name" => ["has already been taken"]},
           "path" => ["menuItem"]
         }
       ]

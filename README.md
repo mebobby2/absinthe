@@ -147,6 +147,6 @@ Since tuples, lists, maps, and others are treated the same as function calls in 
 
 # Upto
 
-Page 103
+Page 109
 
-Errors as Data
+Chapter 6

@@ -145,8 +145,12 @@ Since tuples, lists, maps, and others are treated the same as function calls in 
 %{1 => 2, :foo => :bar}
 ```
 
+## API Design
+### Real-time data and REST
+In REST-oriented web frameworks, the need to have near real-time, live data streams still feels like a strange new world. It isn’t necessarily that setting up a WebSocket connection is hard (particularly if you’re using Phoenix), but rather that such connections don’t fit into the REST API paradigm very easily. Setting up connections for specific data feeds and managing the communica- tion across them is, to say the least, awkward in a world of “resources” tightly coupled to HTTP verbs. Consequently, even in frameworks that have fantastic near real-time support, whatever approach that’s available doesn’t feel like a first-class part of the API. When your API is built solidly around the semantics of HTTP requests, the needs of live data feeds can feel like an afterthought.
+
 # Upto
 
-Page 109
+Page 110
 
-Chapter 6
+Setting Up Subscriptions

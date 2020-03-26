@@ -41,6 +41,14 @@ defmodule PlateSlateWeb.Schema do
     end
   end
 
+  subscription do
+    field :new_order, :order do
+      config fn _args, _info ->
+        {:ok, topic: "*"}
+      end
+    end
+  end
+
   enum :sort_order do
     value :asc
     value :desc

@@ -13,6 +13,7 @@ defmodule PlateSlateWeb.Schema do
   alias PlateSlateWeb.Resolvers
 
   import_types __MODULE__.MenuTypes
+  import_types __MODULE__.OrderingTypes
 
   query do
     @desc "The list of available items on the menu"
@@ -32,6 +33,11 @@ defmodule PlateSlateWeb.Schema do
     field :create_menu_item, :menu_item_result do
       arg :input, non_null(:menu_item_input)
       resolve &Resolvers.Menu.create_item/3
+    end
+
+    field :place_order, :order_result do
+      arg :input, non_null(:place_order_input)
+      resolve &Resolvers.Ordering.place_order/3
     end
   end
 

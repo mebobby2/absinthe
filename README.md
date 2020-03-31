@@ -145,12 +145,30 @@ Since tuples, lists, maps, and others are treated the same as function calls in 
 %{1 => 2, :foo => :bar}
 ```
 
+### With Statement
+The pipe operator is great when all functions are acting on a consistent piece of data. It falls apart when we introduce variability. That's where with comes in. ```with``` is a lot like a ```|>```v except that it allows you to match each intermediary result.
+
+Every statement of ```with``` is executed in order. Execution continues as long as ```left <- right``` match. As soon as a match fails, the ```else``` block is executed. Within the ```else``` block we can match against whatever WAS returned. If all statements match, the ```do``` block is executed and has access to all the local variables in the ```with``` block.
+```
+def create(params) do
+    with dob <- parse_dob(params["dob"]),
+         name <- parse_name(params["name"])
+    do
+      %User{dob: dob, name: name}
+    else
+      err -> err
+    end
+  end
+  ...
+end
+```
+
 ## API Design
 ### Real-time data and REST
 In REST-oriented web frameworks, the need to have near real-time, live data streams still feels like a strange new world. It isn’t necessarily that setting up a WebSocket connection is hard (particularly if you’re using Phoenix), but rather that such connections don’t fit into the REST API paradigm very easily. Setting up connections for specific data feeds and managing the communica- tion across them is, to say the least, awkward in a world of “resources” tightly coupled to HTTP verbs. Consequently, even in frameworks that have fantastic near real-time support, whatever approach that’s available doesn’t feel like a first-class part of the API. When your API is built solidly around the semantics of HTTP requests, the needs of live data feeds can feel like an afterthought.
 
 # Upto
 
-Page 126
+Page 130
 
-Subscription Triggers
+No feature would be complete without a test, so let’s encode this little narrative in a test case:

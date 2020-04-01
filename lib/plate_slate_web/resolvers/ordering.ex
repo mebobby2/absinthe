@@ -25,7 +25,7 @@ defmodule PlateSlateWeb.Resolvers.Ordering do
       {:ok, %{order: order}}
     else
       {:error, changeset} ->
-        {:ok, %{errors: transform_error(changeset)}}
+        {:ok, %{errors: transform_errors(changeset)}}
     end
   end
 
@@ -35,7 +35,7 @@ defmodule PlateSlateWeb.Resolvers.Ordering do
       {:ok, %{order: order}}
     else
       {:error, changeset} ->
-        {:ok, %{errors: transform_error(changeset)}}
+        {:ok, %{errors: transform_errors(changeset)}}
     end
   end
 

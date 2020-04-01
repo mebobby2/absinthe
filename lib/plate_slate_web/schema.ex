@@ -61,7 +61,7 @@ defmodule PlateSlateWeb.Schema do
     field :update_order, :order do
       arg :id, non_null(:id)
 
-      config fn _args, _info ->
+      config fn args, _info ->
         {:ok, topic: args.id}
       end
 

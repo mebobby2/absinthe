@@ -71,6 +71,16 @@ defmodule PlateSlate.Seeds do
       %Menu.Item{name: "Pasta Salad", price: Decimal.cast(2.50), category: sides}
       |> Repo.insert!
 
+    %Menu.Item{
+      name: "Thai Salad",
+      price: 3.50,
+      category: sides,
+      allergy_info: [
+        %{"allergen" => "Peanuts", "severity" => "Contains"},
+        %{"allergen" => "Shell Fish", "severity" => "Shared Equipment"}
+      ]
+    } |> Repo.insert!
+
     #
     # BEVERAGES
     #

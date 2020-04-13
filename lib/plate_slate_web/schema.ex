@@ -15,6 +15,7 @@ defmodule PlateSlateWeb.Schema do
 
   import_types __MODULE__.MenuTypes
   import_types __MODULE__.OrderingTypes
+  import_types __MODULE__.AccountsTypes
 
   def middleware(middleware, field, %{identifier: :allergy_info} = object) do
     new_middleware = {Absinthe.Middleware.MapGet, to_string(field.identifier)}

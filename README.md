@@ -169,6 +169,6 @@ In REST-oriented web frameworks, the need to have near real-time, live data stre
 
 # Upto
 
-Page 165
+Page 169
 
-If we run our tests right now, we’ll get two errors!
+It’s got a customer ID! Online ordering is live. However, if we run our tests at this point, we’ll see that we’ve got a failing case:

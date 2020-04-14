@@ -35,6 +35,7 @@ defmodule PlateSlateWeb.Schema.Query.MenuItemsTest do
       %{"name" => "Pasta Salad"},
       %{"name" => "Reuben"},
       %{"name" => "Soft Drink"},
+      %{"name" => "Thai Salad"},
       %{"name" => "Vada Pav"},
       %{"name" => "Vanilla Milkshake"},
       %{"name" => "Water"}

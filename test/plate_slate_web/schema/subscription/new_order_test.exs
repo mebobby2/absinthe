@@ -6,6 +6,14 @@
 defmodule PlateSlateWeb.Schema.Subscription.NewOrderTest do
   use PlateSlateWeb.SubscriptionCase
 
+  @login """
+  mutation($email: String!, $role: Role!) {
+    login(role: $role, password: "super-secret", email: $email) {
+      token
+    }
+  }
+  """
+
   @subscription """
   subscription {
     newOrder {
@@ -19,6 +27,14 @@ defmodule PlateSlateWeb.Schema.Subscription.NewOrderTest do
   }
   """
   test "new orders can be subscribed to", %{socket: socket} do
+    #login
+    user = Factory.create_user("employee")
+    ref = push_doc socket, @login, variables: %{
+      "email" => user.email,
+      "role" => "EMPLOYEE",
+    }
+    assert_reply ref, :ok, %{data: %{"login" => %{"token" => _}}}, 1_000
+
     # setup a subscription
     ref = push_doc socket, @subscription
     assert_reply ref, :ok, %{subscriptionId: subscription_id}

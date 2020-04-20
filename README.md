@@ -8,6 +8,34 @@
 * ```GET http://localhost:4000/api?query={menuItems(matching: "reu"){name}}```
 * ```POST http://localhost:4000/api  body: query=query($term:String){menuItems(matching: $term){name}} variable={"term":"reu"}```
 
+## Data Provisioning
+* Insert user into the db
+```
+alias PlateSlate.Accounts
+
+%Accounts.User{} |> Accounts.User.changeset(%{role: "customer", name: "Customer One", email: "customer1@example.com", password: "abc123"}) |> PlateSlate.Repo.insert!
+```
+
+* Login
+```
+mutation {
+  login(role: CUSTOMER, email: "customer1@example.com", password: "abc123") {
+		token
+  }
+}
+```
+
+* Add token - copy token from login into Authorization header with Bearer <token>
+```
+{
+  me {
+    name
+    ... on Customer { orders { id } }
+  }
+  menuItems { name }
+}
+```
+
 ## GraphQL
 GraphQL is a query language that gives the users of an API the ability to describe the data that they want, and lets creators of the API focus on data relationships and business rules instead of worrying about the various data payloads the API needs to return.
 

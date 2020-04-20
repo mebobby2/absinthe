@@ -89,6 +89,21 @@ It’s easy to forget that you can’t use object types for user input; instead,
 
 There are also some technical differences between objects and input objects. Input object fields can only be valid input types, which excludes unions, interfaces, and objects. You also can’t form cycles with input objects, whereas cycles are permitted with objects.
 
+### Authorization Design
+Subscriptions and authorization are all about topic design. Topics are extremely cheap and should be used readily to help scope published data to precisely the clients that should be able to see it.
+
+In situations where “authorization” boils down to scoping data under other data, it’s often best to express that scope via the GraphQL document itself. E.g. adding a 'me' field and scoping all data belonging to that account under that field
+
+```
+{
+  me {
+      name
+      ... on Customer { orders { id } }
+    }
+  menuItems { name }
+}
+
+```
 
 ## Elixir
 ### Anonymous Functions Multiple Bodies
@@ -169,6 +184,6 @@ In REST-oriented web frameworks, the need to have near real-time, live data stre
 
 # Upto
 
-Page 173
+Page 178
 
-Structuring for Authorization
+Chapter 9

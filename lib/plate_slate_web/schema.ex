@@ -41,6 +41,11 @@ defmodule PlateSlateWeb.Schema do
       arg :matching, non_null(:string)
       resolve &Resolvers.Menu.search/3
     end
+
+    field :me, :user do
+      middleware Middleware.Authorize, :any
+      resolve &Resolvers.Accounts.me/3
+    end
   end
 
   mutation do

@@ -2,7 +2,8 @@
 ## Setup
 1. ```mix deps.get```
 2. ```mix ecto.setup```
-3. ```mix phx.server```
+3. ```cd assets && npm install```
+4. ```mix phx.server```
 
 ## Usage
 * ```GET http://localhost:4000/api?query={menuItems(matching: "reu"){name}}```
@@ -212,6 +213,6 @@ In REST-oriented web frameworks, the need to have near real-time, live data stre
 
 # Upto
 
-Page 195
+Page 213
 
-Discovering Dataloader
+Handling Input

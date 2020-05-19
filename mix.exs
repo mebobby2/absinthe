@@ -57,7 +57,8 @@ defmodule PlateSlate.Mixfile do
       {:absinthe_relay, "~> 1.4.0"},
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
       {:comeonin_ecto_password, "~> 2.1"},
-      {:pbkdf2_elixir, "~> 0.12.0"}
+      {:pbkdf2_elixir, "~> 0.12.0"},
+      {:dataloader, "~> 1.0.0"}
     ]
   end
 

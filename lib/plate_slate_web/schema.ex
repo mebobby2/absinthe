@@ -1,11 +1,3 @@
-#---
-# Excerpted from "Craft GraphQL APIs in Elixir with Absinthe",
-# published by The Pragmatic Bookshelf.
-# Copyrights apply to this code. It may not be used to create training material,
-# courses, books, articles, and the like. Contact us if you are in doubt.
-# We make no guarantees that this code is fit for any purpose.
-# Visit http://www.pragmaticprogrammer.com/titles/wwgraphql for more book information.
-#---
 defmodule PlateSlateWeb.Schema do
   use Absinthe.Schema
 
@@ -173,5 +165,19 @@ defmodule PlateSlateWeb.Schema do
   object :input_error do
     field :key, non_null(:string)
     field :message, non_null(:string)
+  end
+
+  def plugins do
+    [Absinthe.Middleware.Dataloader | Absinthe.Plugin.defaults]
+  end
+
+  def dataloader do
+    alias PlateSlate.Menu
+    Dataloader.new
+    |> Dataloader.add_source(Menu, Menu.data())
+  end
+
+  def context(ctx) do
+    Map.put(ctx, :loader, dataloader())
   end
 end

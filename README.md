@@ -190,7 +190,7 @@ Since tuples, lists, maps, and others are treated the same as function calls in 
 ```
 
 ### With Statement
-The pipe operator is great when all functions are acting on a consistent piece of data. It falls apart when we introduce variability. That's where with comes in. ```with``` is a lot like a ```|>```v except that it allows you to match each intermediary result.
+The pipe operator is great when all functions are acting on a consistent piece of data. It falls apart when we introduce variability. That's where with comes in. ```with``` is a lot like a ```|>``` except that it allows you to match each intermediary result.
 
 Every statement of ```with``` is executed in order. Execution continues as long as ```left <- right``` match. As soon as a match fails, the ```else``` block is executed. Within the ```else``` block we can match against whatever WAS returned. If all statements match, the ```do``` block is executed and has access to all the local variables in the ```with``` block.
 ```

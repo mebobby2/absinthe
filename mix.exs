@@ -58,7 +58,8 @@ defmodule PlateSlate.Mixfile do
       {:mix_test_watch, "~> 1.0", only: :dev, runtime: false},
       {:comeonin_ecto_password, "~> 2.1"},
       {:pbkdf2_elixir, "~> 0.12.0"},
-      {:dataloader, "~> 1.0.0"}
+      {:dataloader, "~> 1.0.0"},
+      {:cors_plug, "~> 1.5"}
     ]
   end
 

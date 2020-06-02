@@ -1,5 +1,6 @@
 defmodule PlateSlateWeb.Resolvers.Menu do
   alias PlateSlate.Menu
+  import Absinthe.Resolution.Helpers
 
   def menu_items(_, args, _) do
     {:ok, Menu.list_items(args)}

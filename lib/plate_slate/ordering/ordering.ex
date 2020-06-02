@@ -118,12 +118,6 @@ defmodule PlateSlate.Ordering do
     |> Repo.all
     |> Enum.group_by(& &1.name, & &1.order)
   end
-  defp name_query(since, names) do
-    from i in "order_items",
-      join: o in Order, on: o.id == i.order_id,
-      where: o.ordered_at >= type(^since, :date),
-      were: i.name in ^names
-  end
 
   def orders_stats_by_name(%{since: since}, names) do
     Map.new Repo.all from i in name_query(since, names),
@@ -132,5 +126,12 @@ defmodule PlateSlate.Ordering do
         quantity: sum(i.quantity),
         gross: type(sum(fragment("? * ?", i.price, i.quantity)), :decimal)
       }}
+  end
+
+  defp name_query(since, names) do
+    from i in "order_items",
+      join: o in Order, on: o.id == i.order_id,
+      where: o.ordered_at >= type(^since, :date),
+      where: i.name in ^names
   end
 end

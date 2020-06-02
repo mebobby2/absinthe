@@ -45,7 +45,7 @@ defmodule PlateSlateWeb.Resolvers.Ordering do
     end)
   end
 
-  def stats(stat) do
+  def stat(stat) do
     fn %{item: item, args: args}, _, _ ->
       batch({Ordering, :orders_stats_by_name, args}, item.name, fn results ->
         {:ok, results[item.name][stat] || 0}
